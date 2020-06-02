@@ -19,7 +19,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ml-4 mt-3 bg-light">
-        <a class="navbar-brand" href="index.html">Farmacias Ruiz</a>
+        <a class="navbar-brand" href="dashboard.php">Farmacias Ruiz</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,9 +27,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"> Punto de Venta
-                        <span class="sr-only">(current)</span>
-                    </a>
+                    <a class="nav-link" href="#"> Punto de Venta</a>
+                    <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ordenes.php">Órdenes</a>
@@ -41,7 +40,7 @@
                     <a class="nav-link" href="#">Comprar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pedidos</a>
+                    <a class="nav-link" href="pedidos.php">Pedidos</a>
                 </li>
             </ul>
         </div>

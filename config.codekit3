@@ -175,6 +175,13 @@
 		"oAP": "\/app\/ordenes.php",
 		"oF": 0
 		},
+	"\/src\/pedidos.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/pedidos.php",
+		"oF": 0
+		},
 	"\/src\/read.php": {
 		"cB": 0,
 		"ft": 8192,

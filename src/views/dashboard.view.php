@@ -27,7 +27,7 @@
     </div>
 
     <div class="row mt-lg-5">
-      <div class="col-10 offset-1 text-center mt-1 col-lg-8 offset-lg-2">
+      <div class="col-12 text-center mt-1">
         <h2 class="text-center mb-4">¿Qué deseas hacer?</h2>
         <h3>Farmacia</h3>
         <a href="venta.php" class="btn btn-outline-primary btn-lg text-light">Vender</a>
