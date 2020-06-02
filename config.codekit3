@@ -62,6 +62,13 @@
 		"oAP": "\/app\/buy.php",
 		"oF": 0
 		},
+	"\/src\/create.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/create.php",
+		"oF": 0
+		},
 	"\/src\/css\/index.css": {
 		"aP": 1,
 		"bl": 0,
@@ -84,6 +91,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/app\/database.php",
+		"oF": 0
+		},
+	"\/src\/delete.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/delete.php",
 		"oF": 0
 		},
 	"\/src\/error.php": {
@@ -173,6 +187,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/app\/serv.php",
+		"oF": 0
+		},
+	"\/src\/update.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/update.php",
 		"oF": 0
 		},
 	"\/src\/venta.php": {
