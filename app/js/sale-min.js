@@ -1,0 +1,1 @@
+function getProductsToBuy(t,i){var a=i+"?",n=0;$("."+t).each(function(){var t=$(this).attr("id"),i=$(this).val();i.length>0&&!isNaN(i)&&Number(i)>0&&(n>0&&(a+="&"),a+=t+"="+i,n+=1)}),n>0&&(window.location.href=a)}

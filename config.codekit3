@@ -40,6 +40,13 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/src\/buy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/buy.php",
+		"oF": 0
+		},
 	"\/src\/css\/index.css": {
 		"aP": 1,
 		"bl": 0,
@@ -57,12 +64,66 @@
 		"oAP": "\/app\/dashboard.php",
 		"oF": 0
 		},
+	"\/src\/database.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/database.php",
+		"oF": 0
+		},
+	"\/src\/error.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/error.php",
+		"oF": 0
+		},
 	"\/src\/index.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/app\/index.php",
 		"oF": 0
+		},
+	"\/src\/js\/contact_me.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/contact_me-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/src\/js\/freelancer.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/freelancer-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/src\/js\/jqBootstrapValidation.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/jqBootstrapValidation-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/src\/js\/sale.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/app\/js\/sale-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/src\/login.php": {
 		"cB": 0,
@@ -83,6 +144,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/app\/serv.php",
+		"oF": 0
+		},
+	"\/src\/venta.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/venta.php",
 		"oF": 0
 		},
 	"\/src\/views\/dashboard.view.php": {
