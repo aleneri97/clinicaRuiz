@@ -32,7 +32,7 @@
         <form class="formulario" name="login" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <div class="form-group">
             <label for="exampleInputEmail1">Correo Electrónico</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID o Correo" >
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo de empleado" >
             <small id="emailHelp" class="form-text text-muted">Tus datos están protegidos</small>
           </div>
           <div class="form-group">
