@@ -15,11 +15,9 @@
 
 <body>
   <div class="container home mt-5">
-    <div class="row mt-5">
-      <div class="col-12 text-center mt-5">
-        <div class="mt-1">
-          .
-        </div>
+    <div class="row mt-3">
+      <div class="col-12 text-center mt-3">
+
         <h2 class="mt-5">Bienvenido a</h2>
         <h1 class="display-2">Farmacias Ruiz</h1>
         <p class="text-center">
@@ -29,7 +27,7 @@
     </div>
 
     <div class="row mt-lg-5">
-      <div class="col-10 offset-1 text-center mt-2 col-lg-8 offset-lg-2">
+      <div class="col-10 offset-1 text-center mt-1 col-lg-8 offset-lg-2">
         <h2 class="text-center mb-4">¿Qué deseas hacer?</h2>
         <h3>Farmacia</h3>
         <a href="venta.php" class="btn btn-outline-primary btn-lg text-light">Vender</a>
@@ -40,6 +38,12 @@
 
         <h3 class="mt-4">Consultorio</h3>
         <a href="venta.php" class="btn btn-outline-primary btn-lg text-light">Tipos de consulta</a>
+        <a href="" class="btn btn-outline-primary btn-lg text-light">Doctores</a>
+        <a href="" class="btn btn-outline-primary btn-lg text-light">Pacientes</a>
+        <a href="" class="btn btn-outline-primary btn-lg text-light">Hacer cita</a>
+
+        <h3 class="mt-4">Inventario</h3>
+        <a href="read.php" class="btn btn-outline-primary btn-lg text-light">Read</a>
         <a href="" class="btn btn-outline-primary btn-lg text-light">Doctores</a>
         <a href="" class="btn btn-outline-primary btn-lg text-light">Pacientes</a>
         <a href="" class="btn btn-outline-primary btn-lg text-light">Hacer cita</a>

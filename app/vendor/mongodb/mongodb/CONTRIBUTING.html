@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="contributingtothephplibraryformongodb">Contributing to the PHP Library for MongoDB</h1>
+
+<h2 id="initializingtherepository">Initializing the Repository</h2>
+
+<p>Developers who would like to contribute to the library will need to clone it and
+initialize the project dependencies with <a href="https://getcomposer.org/">Composer</a>:</p>
+
+<pre><code>$ git clone https://github.com/mongodb/mongo-php-library.git
+$ cd mongo-php-library
+$ composer update
+</code></pre>
+
+<p>In addition to installing project dependencies, Composer will check that the
+required extension version is installed. Directions for installing the extension
+may be found <a href="http://php.net/manual/en/mongodb.installation.php">here</a>.</p>
+
+<p>Installation directions for Composer may be found in its
+<a href="https://getcomposer.org/doc/00-intro.md">Getting Started</a> guide.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>The library&#8217;s test suite uses <a href="https://phpunit.de/">PHPUnit</a>, which should be
+installed as a development dependency by Composer.</p>
+
+<p>The test suite may be executed with:</p>
+
+<pre><code>$ vendor/bin/phpunit
+</code></pre>
+
+<p>The <code>phpunit.xml.dist</code> file is used as the default configuration file for the
+test suite. In addition to various PHPUnit options, it defines required
+<code>MONGODB_URI</code> and <code>MONGODB_DATABASE</code> environment variables. You may customize
+this configuration by creating your own <code>phpunit.xml</code> file based on the
+<code>phpunit.xml.dist</code> file we provide.</p>
+
+<h2 id="checkingcodingstandards">Checking coding standards</h2>
+
+<p>The library&#8217;s code is checked using <a href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer</a>,
+which is installed as a development dependency by Composer. Due to the PHP
+requirement, the base version of the coding standard is not installed and needs
+to be added manually if you plan to contributing code:</p>
+
+<pre><code>$ composer require --dev doctrine/coding-standard=^6.0
+</code></pre>
+
+<p>Once the coding standard has been installed, you can check the code for style
+errors:</p>
+
+<pre><code>$ vendor/bin/phpcs
+</code></pre>
+
+<p>To automatically fix all fixable errors, use the <code>phpcbf</code> binary:</p>
+
+<pre><code>$ vendor/bin/phpcbf
+</code></pre>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Documentation for the library lives in the <code>docs/</code> directory and is built with
+tools in the related
+<a href="https://github.com/mongodb/docs-php-library">mongodb/docs-php-library</a>
+repository. The tools repository is already configured to reference our sources.</p>
+
+<p>That said, any changes to the documentation should be tested locally before
+committing. Follow the following steps to build the docs locally with the tools
+repository:</p>
+
+<ul>
+<li> Clone the
+<a href="https://github.com/mongodb/docs-php-library">mongodb/docs-php-library</a> tools
+repository.</li>
+<li> Install <a href="https://pypi.python.org/pypi/giza/">giza</a>, as noted in the tools
+README.</li>
+<li> Sync your working copy of the documentation to the <code>source/</code> directory with
+<code>rsync -a --delete /path/to/mongo-php-library/docs/ source/</code>.</li>
+<li> Build the documentation with <code>giza make publish</code>. You can suppress
+informational log messages with the <code>--level warning</code> option.</li>
+<li> Generated documentation may be found in the <code>build/master/html</code> directory.</li>
+</ul>
+
+<h2 id="releasing">Releasing</h2>
+
+<p>The follow steps outline the release process for a maintenance branch (e.g.
+releasing the <code>vX.Y</code> branch as X.Y.Z).</p>
+
+<h3 id="ensurephpversioncompatibility">Ensure PHP version compatibility</h3>
+
+<p>Ensure that the library test suite completes on supported versions of PHP.</p>
+
+<h3 id="transitionjiraissuesandversion">Transition JIRA issues and version</h3>
+
+<p>All issues associated with the release version should be in the &#8220;Closed&#8221; state
+and have a resolution of &#8220;Fixed&#8221;. Issues with other resolutions (e.g.
+&#8220;Duplicate&#8221;, &#8220;Works as Designed&#8221;) should be removed from the release version so
+that they do not appear in the release notes.</p>
+
+<p>Check the corresponding &#8220;.x&#8221; fix version to see if it contains any issues that
+are resolved as &#8220;Fixed&#8221; and should be included in this release version.</p>
+
+<p>Update the version&#8217;s release date and status from the
+<a href="https://jira.mongodb.org/plugins/servlet/project-config/PHPLIB/versions">Manage Versions</a>
+page.</p>
+
+<h3 id="updateversioninfo">Update version info</h3>
+
+<p>The PHP library uses <a href="http://semver.org/">semantic versioning</a>. Do not break
+backwards compatibility in a non-major release or your users will kill you.</p>
+
+<p>Before proceeding, ensure that the <code>master</code> branch is up-to-date with all code
+changes in this maintenance branch. This is important because we will later
+merge the ensuing release commits up to master with <code>--strategy=ours</code>, which
+will ignore changes from the merged commits.</p>
+
+<h3 id="tagrelease">Tag release</h3>
+
+<p>The maintenance branch&#8217;s HEAD will be the target for our release tag:</p>
+
+<pre><code>$ git tag -a -m &quot;Release X.Y.Z&quot; X.Y.Z
+</code></pre>
+
+<h3 id="pushtags">Push tags</h3>
+
+<pre><code>$ git push --tags
+</code></pre>
+
+<h3 id="mergethemaintenancebranchuptomaster">Merge the maintenance branch up to master</h3>
+
+<pre><code>$ git checkout master
+$ git merge vX.Y --strategy=ours
+$ git push
+</code></pre>
+
+<p>The <code>--strategy=ours</code> option ensures that all changes from the merged commits
+will be ignored.</p>
+
+<h3 id="publishreleasenotes">Publish release notes</h3>
+
+<p>The following template should be used for creating GitHub release notes via
+<a href="https://github.com/mongodb/mongo-php-library/releases/new">this form</a>.</p>
+
+<pre><code>The PHP team is happy to announce that version X.Y.Z of the MongoDB PHP library is now available. This library is a high-level abstraction for the [`mongodb`](http://php.net/mongodb) extension.
+
+**Release Highlights**
+
+&lt;one or more paragraphs describing important changes in this release&gt;
+
+A complete list of resolved issues in this release may be found at:
+$JIRA_URL
+
+**Documentation**
+
+Documentation for this library may be found at:
+https://docs.mongodb.com/php-library/
+
+**Feedback**
+
+If you encounter any bugs or issues with this library, please report them via this form:
+https://jira.mongodb.org/secure/CreateIssue.jspa?pid=12483&amp;issuetype=1
+
+**Installation**
+
+This library may be installed or upgraded with:
+
+    composer require mongodb/mongodb
+
+Installation instructions for the `mongodb` extension may be found in the [PHP.net documentation](http://php.net/manual/en/mongodb.installation.php).
+</code></pre>
+
+<p>The URL for the list of resolved JIRA issues will need to be updated with each
+release. You may obtain the list from
+<a href="https://jira.mongodb.org/secure/ReleaseNote.jspa?projectId=12483">this form</a>.</p>
+
+<p>If commits from community contributors were included in this release, append the
+following section:</p>
+
+<pre><code>**Thanks**
+
+Thanks for our community contributors for this release:
+
+ * [$CONTRIBUTOR_NAME](https://github.com/$GITHUB_USERNAME)
+</code></pre>
+
+<p>Release announcements should also be sent to the <code>mongodb-user@googlegroups.com</code>
+and <code>mongodb-announce@googlegroups.com</code> mailing lists.</p>
+
+<p>Consider announcing each release on Twitter. Significant releases should also be
+announced via <a href="http://twitter.com/mongodb">@MongoDB</a> as well.</p>
+
+</body>
+</html>
+

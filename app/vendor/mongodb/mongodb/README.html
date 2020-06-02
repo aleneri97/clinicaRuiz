@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="mongodbphplibrary">MongoDB PHP Library</h1>
+
+<p><a href="https://travis-ci.org/mongodb/mongo-php-library"><img src="https://api.travis-ci.org/mongodb/mongo-php-library.png?branch=master" alt="Build Status" /></a></p>
+
+<p>This library provides a high-level abstraction around the lower-level
+<a href="https://github.com/mongodb/mongo-php-driver">PHP driver</a> (<code>mongodb</code> extension).</p>
+
+<p>While the extension provides a limited API for executing commands, queries, and
+write operations, this library implements an API similar to that of the
+<a href="https://php.net/manual/en/book.mongo.php">legacy PHP driver</a>. It contains
+abstractions for client, database, and collection objects, and provides methods
+for CRUD operations and common commands (e.g. index and collection management).</p>
+
+<p>If you are developing an application with MongoDB, you should consider using
+this library, or another high-level abstraction, instead of the extension alone.</p>
+
+<p>Additional information about the architecture of this library and the <code>mongodb</code>
+extension may be found in
+<a href="https://php.net/manual/en/mongodb.overview.php">Architecture Overview</a>.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+<li> https://docs.mongodb.com/php-library/</li>
+<li> https://docs.mongodb.com/ecosystem/drivers/php/</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>The preferred method of installing this library is with
+<a href="https://getcomposer.org/">Composer</a> by running the following from your project
+root:</p>
+
+<pre><code>$ composer require mongodb/mongodb
+</code></pre>
+
+<p>Additional installation instructions may be found in the
+<a href="https://docs.mongodb.com/php-library/current/tutorial/install-php-library/">library documentation</a>.</p>
+
+<p>Since this library is a high-level abstraction for the driver, it also requires
+that the <code>mongodb</code> extension be installed:</p>
+
+<pre><code>$ pecl install mongodb
+$ echo &quot;extension=mongodb.so&quot; &gt;&gt; `php --ini | grep &quot;Loaded Configuration&quot; | sed -e &quot;s|.*:\s*||&quot;`
+</code></pre>
+
+<p>Additional installation instructions for the extension may be found in its
+<a href="https://php.net/manual/en/mongodb.installation.php">PHP.net documentation</a>.</p>
+
+<h2 id="reportingissues">Reporting Issues</h2>
+
+<p>Issues pertaining to the library should be reported in the
+<a href="https://jira.mongodb.org/secure/CreateIssue!default.jspa?project-field=PHPLIB">PHPLIB</a>
+project in MongoDB&#8217;s JIRA. Extension-related issues should be reported in the
+<a href="https://jira.mongodb.org/secure/CreateIssue!default.jspa?project-field=PHPC">PHPC</a>
+project.</p>
+
+<p>For general questions and support requests, please use one of MongoDB&#8217;s
+<a href="https://docs.mongodb.com/manual/support/">Technical Support</a> channels.</p>
+
+<h3 id="securityvulnerabilities">Security Vulnerabilities</h3>
+
+<p>If you&#8217;ve identified a security vulnerability in a driver or any other MongoDB
+project, please report it according to the instructions in
+<a href="https://docs.mongodb.org/manual/tutorial/create-a-vulnerability-report">Create a Vulnerability Report</a>.</p>
+
+<h2 id="development">Development</h2>
+
+<p>Development is tracked in the
+<a href="https://jira.mongodb.org/projects/PHPLIB/summary">PHPLIB</a> project in MongoDB&#8217;s
+JIRA. Documentation for contributing to this project may be found in
+<a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h2 id="illuminatedatabase">Illuminate Database</h2>
+
+<p>The Illuminate Database component is a full database toolkit for PHP, providing an expressive query builder, ActiveRecord style ORM, and schema builder. It currently supports MySQL, Postgres, SQL Server, and SQLite. It also serves as the database layer of the Laravel PHP framework.</p>
+
+<h3 id="usageinstructions">Usage Instructions</h3>
+
+<p>First, create a new &#8220;Capsule&#8221; manager instance. Capsule aims to make configuring the library for usage outside of the Laravel framework as easy as possible.</p>
+
+<pre><code class="PHP">use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule-&gt;addConnection([
+    'driver'    =&gt; 'mysql',
+    'host'      =&gt; 'localhost',
+    'database'  =&gt; 'database',
+    'username'  =&gt; 'root',
+    'password'  =&gt; 'password',
+    'charset'   =&gt; 'utf8',
+    'collation' =&gt; 'utf8_unicode_ci',
+    'prefix'    =&gt; '',
+]);
+
+// Set the event dispatcher used by Eloquent models... (optional)
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
+$capsule-&gt;setEventDispatcher(new Dispatcher(new Container));
+
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule-&gt;setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule-&gt;bootEloquent();
+</code></pre>
+
+<blockquote>
+<p><code>composer require &quot;illuminate/events&quot;</code> required when you need to use observers with Eloquent.</p>
+</blockquote>
+
+<p>Once the Capsule instance has been registered. You may use it like so:</p>
+
+<p><strong>Using The Query Builder</strong></p>
+
+<pre><code class="PHP">$users = Capsule::table('users')-&gt;where('votes', '&gt;', 100)-&gt;get();
+</code></pre>
+
+<p>Other core methods may be accessed directly from the Capsule in the same manner as from the DB facade:</p>
+
+<pre><code class="PHP">$results = Capsule::select('select * from users where id = ?', [1]);
+</code></pre>
+
+<p><strong>Using The Schema Builder</strong></p>
+
+<pre><code class="PHP">Capsule::schema()-&gt;create('users', function ($table) {
+    $table-&gt;increments('id');
+    $table-&gt;string('email')-&gt;unique();
+    $table-&gt;timestamps();
+});
+</code></pre>
+
+<p><strong>Using The Eloquent ORM</strong></p>
+
+<pre><code class="PHP">class User extends Illuminate\Database\Eloquent\Model {}
+
+$users = User::where('votes', '&gt;', 1)-&gt;get();
+</code></pre>
+
+<p>For further documentation on using the various database facilities this library provides, consult the <a href="https://laravel.com/docs">Laravel framework documentation</a>.</p>
+
+</body>
+</html>
+

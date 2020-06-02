@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="contributingtocarbon">Contributing to Carbon</h1>
+
+<h2 id="issuecontributions">Issue Contributions</h2>
+
+<p>Please report any security issue using <a href="https://tidelift.com/security">Tidelift security contact</a>.
+Tidelift will coordinate the fix and disclosure.
+Please don&#8217;t disclose security bugs publicly until they have been handled by us.</p>
+
+<p>For any other bug or issue, please click this link and follow the template:
+<a href="https://github.com/briannesbitt/Carbon/issues/new">Create new issue</a></p>
+
+<p>You may think this template does not apply to your case but please think again. A long description will never be as
+clear as a code chunk with the output you expect from it (for either bug report or new features).</p>
+
+<h2 id="codecontributions">Code Contributions</h2>
+
+<h3 id="wheretobegin">Where to begin</h3>
+
+<p>We use the label <strong>good first issue</strong> to tag issues that could be a good fit for new contributors, see if there are such issues now following this link:</p>
+
+<p>https://github.com/briannesbitt/Carbon/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22</p>
+
+<p>Else, check the roadmap to see what we plan to do in next releases:</p>
+
+<p>https://github.com/briannesbitt/Carbon/issues/1681</p>
+
+<h3 id="developlocallythensubmitchanges">Develop locally, then submit changes</h3>
+
+<p>Fork the <a href="https://github.com/briannesbitt/Carbon">GitHub project</a> and download it locally:</p>
+
+<pre><code class="shell">git clone https://github.com/&lt;username&gt;/Carbon.git
+cd Carbon
+git remote add upstream https://github.com/briannesbitt/Carbon.git
+</code></pre>
+
+<p>Replace <code>&lt;username&gt;</code> with your GitHub username.</p>
+
+<p>Then, you can work on the master or create a specific branch for your development:</p>
+
+<pre><code class="shell">git checkout -b my-feature-branch -t origin/master
+</code></pre>
+
+<p>You can now edit the &#8220;Carbon&#8221; directory contents.</p>
+
+<p>Before committing, please set your name and your e-mail (use the same e-mail address as in your GitHub account):</p>
+
+<pre><code class="shell">git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your.email.address@example.com&quot;
+</code></pre>
+
+<p>The <code>--global</code> argument will apply this setting for all your git repositories, remove it to set only your Carbon
+fork with those settings.</p>
+
+<p>Now you can commit your modifications as you usually do with git:</p>
+
+<pre><code class="shell">git add --all
+git commit -m &quot;The commit message log&quot;
+</code></pre>
+
+<p>If your patch fixes an open issue, please insert <code>#</code> immediately followed by the issue number:</p>
+
+<pre><code class="shell">git commit -m &quot;#21 Fix this or that&quot;
+</code></pre>
+
+<p>Use git rebase (not git merge) to sync your work from time to time:</p>
+
+<pre><code class="shell">git fetch origin
+git rebase origin/master
+</code></pre>
+
+<p>Please add some tests for bug fixes and features (so it will ensure next developments will not break your code),
+then check all is right with phpunit:</p>
+
+<p>Install PHP if you haven&#8217;t yet, then install composer:
+https://getcomposer.org/download/</p>
+
+<p>Update dependencies:</p>
+
+<pre><code>./composer.phar update
+</code></pre>
+
+<p>Or if you installed composer globally:</p>
+
+<pre><code>composer update
+</code></pre>
+
+<p>Then call phpunit:</p>
+
+<pre><code>./vendor/bin/phpunit
+</code></pre>
+
+<p>Make sure all tests succeed before submitting your pull-request, else we will not be able to merge it.</p>
+
+<p>Push your work on your remote GitHub fork with:</p>
+
+<pre><code>git push origin my-feature-branch
+</code></pre>
+
+<p>Go to https://github.com/yourusername/Carbon and select your feature branch. Click the &#8216;Pull Request&#8217; button and fill
+out the form.</p>
+
+<p>We will review it within a few days. And we thank you in advance for your help.</p>
+
+<h2 id="versioning">Versioning</h2>
+
+<h3 id="noteaboutsemanticversioningandbreakingchanges">Note about Semantic Versioning and breaking changes</h3>
+
+<p>As a developer, you must understand every change is a breaking change. What is a bug for someone
+is expected in someone else&#8217;s workflow. The consequence of a change strongly depends on the usage.
+<a href="https://semver.org/">Semantic Versioning</a> relies to public API. In PHP, the public API of a class is its public
+methods. However, if you extend a class, you can access protected methods, then if you use reflexion, you can
+access private methods. So anything can become a public API if you force it to be. That doesn&#8217;t mean we should handle
+any possible usage, else we would have to publish a major release for each change and it would no longer make sense.</p>
+
+<p>So before any complain about a breaking change, be warned, we do not guarantee a strict Semantic Versioning as you
+may expect, we&#8217;re following a pragmatic interpretation of Semantic Versioning that allows the software to evolve in a
+reliable way with reasonable maintenance effort.</p>
+
+<p>Concretely, we consider a change as breaking if it makes fail one of our unit test. We will do our best to avoid
+incompatibilities with libraries that extends Carbon classes (such as Laravel that is continuously tested thanks to
+Travis CI, <a href="https://github.com/kylekatarnls/carbon-laravel/tree/master#carbon-1-dev-version-1next">see the compatibility matrix</a>).</p>
+
+<p>If you&#8217;re the owner of a library that strongly depends on Carbon, we recommend you to run unit tests daily requiring
+<code>&quot;nesbot/carbon&quot;: &quot;dev-master&quot;</code> (for <code>^2</code>) or <code>&quot;nesbot/carbon&quot;: &quot;dev-version-1.next&quot;</code> (for <code>^1</code>), this way you can
+detect incompatibilities earlier and report it to us before we tag a release. We&#8217;ll pay attention and try to fix it to
+make update to next minor releases as soft as possible.</p>
+
+<p>We reserve the right to publish emergency patches within 24 hours after a release if a tag that does not respect
+this pattern would have been released despite our vigilance. In this very rare and particular case, we would mark the
+tag as broken on GitHub and backward compatibility would be based on previous stable tag.</p>
+
+<p>Last, you must understand that Carbon extends PHP natives classes, that means Carbon can be impacted by any change
+that occurs in the date/time API of PHP. We watch new PHP versions and handle those changes as quickly as possible
+when detected, but as PHP does not follow the semantic versioning pattern, it basically means any releases (including
+patches) can have unexpected consequences on Carbon methods results.</p>
+
+<h3 id="longtermsupport">Long term support</h3>
+
+<p>To benefit the better support, require Carbon using major version range (<code>^1</code> or <code>^2</code>). By requiring <code>1.26.*</code>,
+<code>~1.26.0</code> or limited range such as <code>&gt;=1.20 &lt;1.33</code>, you fall to low priority support (only security and critical issues
+will be fixed), our prior support goes to next minor releases of each major version. It applies to bug fixes and
+low-cost features. Other new features will only be added in the last stable release. At the opposite, we recommend you
+to restrain to a major number, as there is no compatibility guarantee from a major version to the next. It means
+requiring <code>&gt;=2</code>, as it allows any newer version, will probably leads to errors on releasing our next major version.</p>
+
+<p>Open milestones can be patched if a minor bug is detected while if you&#8217;re on a closed milestone, we&#8217;ll more likely
+ask you to update first to an open one. See currently open milestones:</p>
+
+<p>https://github.com/briannesbitt/Carbon/milestones</p>
+
+</body>
+</html>
+
