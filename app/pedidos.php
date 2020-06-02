@@ -8,6 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="js/jqBootstrapValidation-min.js"></script>
+    <script src="js/contact_me-min.js"></script>
+    <script src="js/freelancer-min.js"></script>
+    <script src="js/sale-min.js"></script>
     <title>Document</title>
 </head>
 
@@ -28,13 +32,13 @@
                         <a class="nav-link" href="ordenes.php">Órdenes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clientes.php">Inventario</a>
+                        <a class="nav-link" href="inventario.php">Inventario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Comprar</a>
+                        <a class="nav-link" href="compra.php">Comprar</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Pedidos</a>
+                        <a class="nav-link" href="pedidos.php">Pedidos</a>
                         <span class="sr-only">(current)</span>
                 </li>
             </ul>

@@ -114,6 +114,13 @@
 		"oAP": "\/app\/index.php",
 		"oF": 0
 		},
+	"\/src\/inventario.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/inventario.php",
+		"oF": 0
+		},
 	"\/src\/js\/contact_me.js": {
 		"ft": 64,
 		"ma": 0,

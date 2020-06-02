@@ -14,7 +14,6 @@
     <script src="js/contact_me-min.js"></script>
     <script src="js/freelancer-min.js"></script>
     <script src="js/sale-min.js"></script>
-
     <title>Document</title>
 </head>
 
@@ -29,15 +28,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="venta.php"> Punto de Venta</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ordenes.php">Órdenes</a>
+                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Órdenes</a>
+                    <a class="nav-link" href="#">Inventario</a>
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="inventario.php">Inventario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="comprar.php">Comprar</a>
+                    <a class="nav-link" href="compra.php">Comprar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pedidos.php">Pedidos</a>
@@ -48,43 +47,44 @@
     <div class="container">
         <div class="row text-light">
             <div class="col-8 offset-2 mt-4 text-center">
-                <h1>Órdenes</h1>
+                <h1>Inventario</h1>
             </div>
         </div>
         <div class="row text-white-50">
             <div class="col-10 offset-1">
-                <p class="text-center ">Órdenes de compras de nuestros clientes</p>
+                <p class="text-center ">Inventario de productos en bodega.</p>
             </div>
         </div>
-    </div>
-    <div class="table-responsive">
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha y hora</th>
-                    <th>Nombre del Cliente</th>
-                    <th>Importe total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                require_once('database.php');
-                $datb45 = Database::connect();
-                $ymfr31 = "SELECT s.id as 'sale_id', s.date_time as 'date_time', c.nombre as 'customer_name', c.apellido as 'customer_lastname' , SUM(sp.cuantos*producto.precio) as 'cantidad_total_ventas' FROM rebaja_producto sp LEFT JOIN producto ON sp.producto = producto.id LEFT JOIN rebaja s ON sp.rebaja = s.id LEFT JOIN cliente c ON s.cliente = c.id GROUP BY sp.rebaja";
-                foreach ($datb45->query($ymfr31) as $grfx23) {
-                    echo '<tr>';
-                    echo '<td>' . $grfx23['sale_id'] . '</td>';
-                    echo '<td>' . $grfx23['date_time'] . '</td>';
-                    echo '<td>' . $grfx23['customer_name'] . ' ' . $grfx23['customer_lastname'] . '</td>';
-                    echo '<td> $' . $grfx23['cantidad_total_ventas'] . '</td>';
-                    echo '</tr>';
-                }
-                Database::disconnect();
-                ?>
-            </tbody>
-        </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table text-center">
+                <thead class="text-uppercase">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Departamento</th>
+                        <th>Precio</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    require_once('database.php');
+                    $jqfo44 = Database::connect();
+                    $ymfr31 = "SELECT p.id as 'product_id', p.nombre as 'product_name', d.nombre as 'department_name', p.precio as 'product_price', p.sku as 'product_sku' FROM producto p JOIN categoria c ON p.categoria = c.id JOIN seccion d ON c.seccion = d.id JOIN sucursal b ON d.sucursal = 'SUC02' GROUP BY p.id ORDER BY d.nombre";
+                    foreach ($jqfo44->query($ymfr31) as $grfx23) {
+                        echo '<tr>';
+                        echo '<td>' . $grfx23['product_id'] . '</td>';
+                        echo '<td>' . $grfx23['product_name'] . '</td>';
+                        echo '<td>' . $grfx23['department_name'] . '</td>';
+                        echo '<td> $' . $grfx23['product_price'] . '</td>';
+                        echo '<td>' . $grfx23['product_sku'] . '</td>';
+                        echo '</tr>';
+                    }
+                    Database::disconnect();
+                    ?>
+                </tbody>
+            </table>
+        </div>
 </body>
 
 </html>

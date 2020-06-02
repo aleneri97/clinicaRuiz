@@ -10,30 +10,34 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index-min.css">
+    <script src="js/jqBootstrapValidation-min.js"></script>
+    <script src="js/contact_me-min.js"></script>
+    <script src="js/freelancer-min.js"></script>
+    <script src="js/sale-min.js"></script>
+
     <title>Document</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ml-4 mt-3 bg-light">
         <a class="navbar-brand" href="dashboard.php">Farmacias Ruiz</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Punto de Venta</a>
+                    <a class="nav-link" href="venta.php"> Punto de Venta</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="ordenes.php">Órdenes</a>
+                    <a class="nav-link" href="#">Órdenes</a>
                     <span class="sr-only">(current)</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="clientes.php">Inventario</a>
+                    <a class="nav-link" href="inventario.php">Inventario</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Comprar</a>
+                    <a class="nav-link" href="comprar.php">Comprar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pedidos.php">Pedidos</a>
@@ -53,8 +57,8 @@
             </div>
         </div>
     </div>
-    <div class="table-responsive text-center">
-        <table class="table">
+    <div class="table-responsive">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th>ID</th>
