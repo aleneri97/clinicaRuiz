@@ -62,6 +62,13 @@
 		"oAP": "\/app\/buy.php",
 		"oF": 0
 		},
+	"\/src\/compra.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/app\/compra.php",
+		"oF": 0
+		},
 	"\/src\/create.php": {
 		"cB": 0,
 		"ft": 8192,
