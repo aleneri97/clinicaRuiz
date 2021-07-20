@@ -1,1 +1,1 @@
-clinicaRuiz
+Proyecto escolar de BD
